@@ -35,8 +35,9 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body:
-          Center(), // This trailing comma makes auto-formatting nicer for build methods.
+      body: Center(
+        child: Text('Pablo Gaspar Sandoval'),
+      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
