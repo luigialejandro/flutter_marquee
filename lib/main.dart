@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:marquee_widget/marquee_widget.dart';
 
 void main() {
   runApp(const MyApp());
@@ -36,7 +37,18 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: Text('Pablo Gaspar Sandoval'),
+        child: Container(
+            color: Colors.amber[100],
+            width: MediaQuery.of(context).size.width * 0.8,
+            height: MediaQuery.of(context).size.height * 0.2,
+            child: Marquee(
+              child: Text('Pablo Gaspar Sandoval'),
+              textDirection: TextDirection.rtl,
+              animationDuration: Duration(seconds: 2),
+              backDuration: Duration(milliseconds: 500),
+              pauseDuration: Duration(milliseconds: 2500),
+              directionMarguee: DirectionMarguee.oneDirection,
+            )),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
