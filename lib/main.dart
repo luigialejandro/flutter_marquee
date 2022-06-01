@@ -12,10 +12,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Marquee text'),
     );
   }
 }
@@ -33,17 +34,33 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Text('Pablo Antonio Gasparin'),
-        //child: Container(
-        //color: Colors.amber[100],
-        //width: MediaQuery.of(context).size.width * 0.8,
-        //height: MediaQuery.of(context).size.height * 0.2,
-      ),
-      //), // This trailing comma makes auto-formatting nicer for build methods.
-    );
+        appBar: AppBar(
+          title: Text(widget.title),
+          centerTitle: true,
+        ),
+        body: Center(
+          child: Container(
+            color: Colors.amber,
+            width: MediaQuery.of(context).size.width * 0.9,
+            height: MediaQuery.of(context).size.height * 0.05,
+            child: Center(
+              child: Marquee(
+                text: 'Du kannst es schaffen! ',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                scrollAxis: Axis.horizontal,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                blankSpace: 20.0,
+                velocity: 100.0,
+                pauseAfterRound: Duration(seconds: 1),
+                startPadding: 10.0,
+                accelerationDuration: Duration(seconds: 1),
+                accelerationCurve: Curves.linear,
+                decelerationDuration: Duration(milliseconds: 500),
+                decelerationCurve: Curves.easeOut,
+              ),
+            ),
+          ),
+        ));
+    //), // This trailing comma makes auto-formatting nicer for build methods.
   }
 }
